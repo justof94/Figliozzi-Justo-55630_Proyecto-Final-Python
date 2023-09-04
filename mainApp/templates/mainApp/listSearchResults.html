@@ -1,0 +1,150 @@
+{% extends 'mainApp/index.html' %}
+{% load static %}
+
+{% block tabTitle %}
+    Resultados de Busqueda
+{% endblock tabTitle %}
+
+{% block titulo %}
+    <h3>Patron de busqueda: {{patron}}</h3>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Se encontraron los siguientes resultados...</li>
+    </ol>
+{% endblock titulo %}
+
+{% block contenido %}
+    {% if resultRed %}
+<div class="col-xl">
+    <div class="card mb-4 opacity-75">
+        <div class="card-header" style="background-color:#FFBC00">
+            <i class="fas fa-table me-1"></i>
+            Eqipos de Red
+        </div>
+        <div class="card-body">
+            <table class="table small text-center">
+                
+                <thead class="table-dark">
+                    <tr>
+                        <th>ET</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Nivel de tensión</th>
+                        <th>Edificio</th>
+                        <th>Gabinete</th>
+                        <th>Ip</th>
+                        <th>Mascara subred</th>
+                        <th>Default gateway</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for eq in resultRed %}
+                            <tr>
+                                <td>{{eq.estacionTransformadora.codificacion}}</td>
+                                <td>{{eq.nombre}}</td>
+                                <td>{{eq.descripcion}}</td>
+                                <td>{{eq.nivel_tension}}</td>
+                                <td>{{eq.edificio}}</td>
+                                <td>{{eq.gabinete}}</td>
+                                <td>{{eq.ip}}</td>
+                                <td>{{eq.mask}}</td>
+                                <td>{{eq.defGw}}</td>
+                            </tr> 
+                        {% endfor %}  
+                </tbody>
+            </table>
+        </div>
+    </div> 
+</div>
+    {% endif %}
+        
+        
+        
+    {% if resultTelecontrol %}
+    <div class="col-xl">       
+            <div class="card mb-4 opacity-75">
+                <div class="card-header" style="background-color:#FFBC00">
+                    <i class="fas fa-table me-1"></i>
+                    Eqipos de Telecontrol
+                </div>
+                <div class="card-body">
+                    <table class="table small text-center">
+                        
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ET</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Nivel de tensión</th>
+                                <th>Edificio</th>
+                                <th>Gabinete</th>
+                                <th>Ip</th>
+                                <th>Mascara subred</th>
+                                <th>Default gateway</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {% for eq in resultTelecontrol %}
+                                    <tr>
+                                        <td>{{eq.estacionTransformadora.codificacion}}</td>
+                                        <td>{{eq.nombre}}</td>
+                                        <td>{{eq.descripcion}}</td>
+                                        <td>{{eq.nivel_tension}}</td>
+                                        <td>{{eq.edificio}}</td>
+                                        <td>{{eq.gabinete}}</td>
+                                        <td>{{eq.ip}}</td>
+                                        <td>{{eq.mask}}</td>
+                                        <td>{{eq.defGw}}</td>
+                                    </tr> 
+                                {% endfor %}  
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+        </div>                  
+    {% endif %}
+
+                    
+    {% if resultProteccion %}
+    <div class="col-xl">
+    <div class="card mb-4 opacity-75" id="proteccion">
+        <div class="card-header" style="background-color:#FFBC00">
+            <i class="fas fa-table me-1"></i>
+            Eqipos de Protección
+        </div>
+        <div class="card-body">
+            <table class="table small text-center">
+                
+                <thead class="table-dark">
+                    <tr>
+                        <th>ET</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Nivel de tensión</th>
+                        <th>Edificio</th>
+                        <th>Gabinete</th>
+                        <th>Ip</th>
+                        <th>Mascara subred</th>
+                        <th>Default gateway</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for eq in resultProteccion %}
+                            <tr>
+                                <td>{{eq.estacionTransformadora.codificacion}}</td>
+                                <td>{{eq.nombre}}</td>
+                                <td>{{eq.descripcion}}</td>
+                                <td>{{eq.nivel_tension}}</td>
+                                <td>{{eq.edificio}}</td>
+                                <td>{{eq.gabinete}}</td>
+                                <td>{{eq.ip}}</td>
+                                <td>{{eq.mask}}</td>
+                                <td>{{eq.defGw}}</td>
+                            </tr> 
+                        {% endfor %}  
+                </tbody>
+            </table>
+        </div>
+    </div>      
+</div>                                    
+    {% endif %}                    
+{% endblock contenido %}

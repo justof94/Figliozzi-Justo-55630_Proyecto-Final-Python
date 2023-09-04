@@ -1,0 +1,102 @@
+{% extends 'mainApp/index.html' %}
+{% load static %}
+
+{% block tabTitle %}
+    Detalle de Equipos ET {{nombre}}
+{% endblock tabTitle %}
+
+{% block titulo %}
+    <h1>Equipos de la Estacion Transformadora {{nombre}}</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">En este apartado se encuntran los equipos correspondientes a la ET {{nombre}}</li>
+    </ol>
+{% endblock titulo %}
+
+{% block contenido %}
+    {% if equiposRed %}  
+        <div class="container my-4">
+            <h2 class="mt-4">Equipos de Red</h2>         
+            <div class="row">
+                {% for eq in equiposRed %}        
+                        <div class="col-xl-3 col-md-6">      
+                            <div class="card shadow-lg border-0 rounded-lg mt-5 opacity-75">
+
+                                <div class="card-header" style="background-color:#FFBC00">
+                                    <h3>{{eq.nombre}}</h3>
+                                    <p class="small">{{eq.descripcion}}</p>
+                                </div>
+
+                                <div class="card-body">
+                                    <p>IP: {{eq.ip}}</p>
+                                    <p>Mascara: {{eq.mask}}</p>
+                                    <p>Def. Gateway: {{eq.defGw}}</p>
+                                </div>
+
+                                <div class="card-footer" style="background-color:#FFBC00">
+                                    
+                                </div>
+                            </div>
+                        </div> 
+                {% endfor %}
+            </div>
+        </div> 
+    {% endif %}
+        
+        
+        
+    {% if equiposTelecontrol %} 
+        <div class="container my-4">            
+            <h2>Equipos de Telecontrol</h2>
+            <div class="row">
+                {% for eq in equiposTelecontrol %}        
+                        <div class="col-xl-3 col-md-6">                       
+                            <div class="card shadow-lg border-0 rounded-lg mt-5 opacity-75">
+
+                                <div class="card-header" style="background-color:#FFBC00">
+                                    <h3>{{eq.nombre}}</h3>
+                                    <p class="small">{{eq.descripcion}}</p>
+                                </div>
+        
+                                <div class="card-body">
+                                    <p>IP: {{eq.ip}}</p>
+                                    <p>Mascara: {{eq.mask}}</p>
+                                    <p>Def. Gateway: {{eq.defGw}}</p>
+                                </div>
+        
+                                <div class="card-footer" style="background-color:#FFBC00">                               
+                                </div>    
+                            </div>
+                        </div> 
+                {% endfor %}
+            </div>
+        </div>                    
+    {% endif %}
+
+                    
+    {% if equiposProteccion %} 
+        <div class="container my-4">    
+            <h2>Equipos de Protección</h2>
+            <div class="row">
+                {% for eq in equiposProteccion %}        
+                        <div class="col-xl-3 col-md-6">   
+                            <div class="card shadow-lg border-0 rounded-lg mt-5 opacity-75">
+                                <div class="card-header" style="background-color:#FFBC00">
+                                    <h3>{{eq.nombre}}</h3>
+                                    <p class="small">{{eq.descripcion}}</p>
+                                </div>
+        
+                                <div class="card-body">
+                                    <p>IP: {{eq.ip}}</p>
+                                    <p>Mascara: {{eq.mask}}</p>
+                                    <p>Def. Gateway: {{eq.defGw}}</p>
+                                </div>
+        
+                                <div class="card-footer" style="background-color:#FFBC00">
+                                </div>
+                            </div>
+                        </div> 
+                {% endfor %}
+            </div>            
+        </div>                    
+    {% endif %}                    
+{% endblock contenido %}

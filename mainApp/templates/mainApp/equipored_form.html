@@ -1,0 +1,33 @@
+{% extends 'mainApp/index.html' %}
+{% load static %}
+
+{% block tabTitle %}
+    Equipos de Red
+{% endblock tabTitle %}
+
+{% block titulo %}
+    <h1>Equipos de Red</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Por Favor Ingrese los datos para añadir o modificar un Equipo de Red</li>
+    </ol>
+{% endblock titulo %}
+    
+{% block contenido %}
+    <div  class="col-lg-5">
+        <div class="card shadow-lg border-0 rounded-lg mx-2 my-4 opacity-75">
+            <div class="card-header text-center" style="background-color:#FFBC00">
+                <h3>Información Equipo de Red</h3>
+            </div>
+
+            <div class="card-body">
+                <form class="row text-center" method="POST">
+                    {% csrf_token %}
+                        <table class="table">
+                            {{form.as_table}}
+                        </table>
+                    <input type="submit" value="Enviar" class="btn btn-secondary border-0" style="background-color:#212529">
+                </form> 
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}

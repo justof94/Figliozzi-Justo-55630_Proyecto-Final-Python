@@ -1,0 +1,22 @@
+{% extends 'mainApp/index.html' %}
+{% load static %}
+
+{% block tabTitle %}
+    Home
+{% endblock tabTitle %}
+
+{% block titulo %}
+<h1>Gestión de Red Tecnica de Operación </h1>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active">Bienvenido</li>
+</ol>
+{% endblock titulo %}
+
+{% block contenido %}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <p class="text-center fw-bold mb-4">Esta página web tiene como proposito gestionar las direcciones IP de los distintos tipos de equipos que se pueden encontrar en la Red Tecnica de Operación de una Estación Transformadora de alta tensión.</p>
+    <img src="{% static 'mainApp/assets/bg-landingPage.jpg' %}" alt="" style="max-width: 100vh; max-height: 100vh;">
+    <p class="text-center mt-4"> A fin de navegar por algunas secciones de la página web, el usuario será requerido iniciar sesión o registrarse en caso de no contar con usuario o contraseña. En ambas opciones, una vez la página valide la autenticación del usuario, este será redirigido al inicio de la página web.</p>
+<div class="text-center">
+{% endblock contenido %}

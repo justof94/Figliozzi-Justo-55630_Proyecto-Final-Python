@@ -1,0 +1,37 @@
+{% extends 'mainApp/index.html' %}
+{% load static %}
+
+{% block tabTitle %}
+    User Edit
+{% endblock tabTitle %}
+
+{% block titulo %}
+<h1>Editar Usuario</h1>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active">Desde aqui podra editar la informacion de su usuario</li>
+</ol> 
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <div class="col-lg-8">
+        <form action="" method="POST">
+            {% csrf_token %}  
+            <div class="card shadow-lg border-0 rounded-lg mx-2 my-4 opacity-75">
+                <div class="card-header" style="background-color:#FFBC00">
+                    <h3 class="text-center font-weight-light my-4 text-dark">Datos de Usuario</h3>
+                </div>
+                
+                <div class="card-body text-center">
+                    <table class="table">
+                        {{form.as_table}}
+                    </table>
+                </div>
+
+                <div class="card-footer text-center" style="background-color:#FFBC00">
+                    <input type="submit" class="btn btn-secondary border-0" style="background-color:#212529" value="Actualizar Usuario">  
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock contenido %}

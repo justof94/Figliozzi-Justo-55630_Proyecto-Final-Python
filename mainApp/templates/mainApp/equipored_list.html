@@ -1,0 +1,57 @@
+{% extends 'mainApp/index.html' %}
+{% load static %}
+
+{% block tabTitle %}
+    Equipos de Red
+{% endblock tabTitle %}
+
+{% block titulo %}
+    <table>
+        <td><h1>Equipos de Red</h1></td>
+        {% if user.is_authenticated %}
+            <td> <a class="btn btn-primary" href="{% url 'equipoRedCreate' %}">
+                <i class="fa fa-plus fa-lg" title="New Record"> </i><br>
+            </a>  
+            </td>
+        {% endif %} 
+    </table>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">En esta sección podra ver, editar, añadir o eliminar Equipos de Telecontrol</li>
+    </ol>     
+{% endblock titulo %}
+    
+{% block contenido %}
+    {% if equipored_list %}    
+        {% for eq in equipored_list %}        
+            <div class="col-xl-3">   
+                <div class="card shadow-lg border-0 rounded-lg mx-2 my-4 opacity-75">
+
+                    <div class="card-header" style="background-color:#FFBC00">
+                        <h3>{{eq.estacionTransformadora}}-{{eq.nombre}}</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <p>IP: {{eq.ip}}</p>
+                        <p>Mascara: {{eq.mask}}</p>
+                        <p>Def. Gateway: {{eq.defGw}}</p>
+                    </div>
+
+                    <div class="card-footer" style="background-color:#FFBC00">
+                        <a
+                        href="{% url 'equipoRedUpdate' eq.id %}"
+                        class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                        ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                        </a>
+                        <a
+                        href="{% url 'equipoRedDelete' eq.id %}"
+                        class="btn btn-danger"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                        ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> 
+        {% endfor %}
+    {% endif %}
+{% endblock contenido %}
